@@ -14,13 +14,7 @@ class App extends Component {
       .then(animalData => this.setState({ animals: animalData }))
       .catch(error => console.log(error))
   }
-  updateState() {
-    fetch('http://localhost:3001/api/v1/animals')
-      .then(res => res.json())
-      .then(animalData => this.setState({ animals: animalData }))
-      .catch(error => console.log(error))
-  }
-
+  
   addAnimal = (animal) => {
     const options = {
       method: 'POST',
