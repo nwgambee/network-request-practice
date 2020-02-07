@@ -9,6 +9,8 @@ const CardContainer = (props) => {
               name={animal.name}
               funFact={animal.fun_fact}
               diet={animal.diet}
+              id={animal.id}
+              removeAnimal={props.removeAnimal}
               />
   })
   return (

@@ -19,12 +19,24 @@ class App extends Component {
   addAnimal = (animal) => {
     const options = {
       method: 'POST',
-      body: JSON.stringify({ id: animal.id, name: animal.name, diet: animal.diet, fun_fact: animal.funFact }),
+      body: JSON.stringify({ id: parseInt(animal.id), name: animal.name, diet: animal.diet, fun_fact: animal.funFact }),
       headers: {
         'Content-Type': 'application/json'
       }
     };
     fetch('http://localhost:3001/api/v1/animals', options)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+  }
+
+  removeAnimal = (id) => {
+    fetch('http://localhost:3001/api/v1/animals/' + id, {
+      method: 'DELETE',
+})
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
   }
 
   render() {
@@ -32,7 +44,7 @@ class App extends Component {
       <main>
       <h1>Animals!!</h1>
       <Form addAnimal={this.addAnimal}/>
-      <CardContainer animals={this.state.animals}/>
+      <CardContainer removeAnimal={this.removeAnimal} animals={this.state.animals}/>
       </main>
     )
   }
