@@ -14,7 +14,7 @@ const CardContainer = (props) => {
               />
   })
   return (
-    <section>
+    <section className='card-section'>
       {animals}
     </section>
   )
