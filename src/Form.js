@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class Form extends Component {
   constructor() {
     super();
-    this.state = {name: '', funFact: '', diet: ''}
+    this.state = {name: '', id: '', funFact: '', diet: ''}
   }
   updateFields = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
   submitAnimal = (event) => {
     event.preventDefault();
-    this.props.addAnimal({name: this.state.name, funFact: this.state.funFact, diet: this.state.diet})
+    this.props.addAnimal({name: this.state.name, id: this.state.id, funFact: this.state.funFact, diet: this.state.diet})
   }
 
   render() {
@@ -23,6 +23,13 @@ class Form extends Component {
           placeholder='Name'
           onChange={this.updateFields}
           />
+          <input
+            type='number'
+            name='id'
+            value={this.state.id}
+            placeholder='ID'
+            onChange={this.updateFields}
+            />
         <input
         type='text'
         name='funFact'

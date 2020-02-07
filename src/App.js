@@ -17,7 +17,14 @@ class App extends Component {
   }
 
   addAnimal = (animal) => {
-    console.log(animal);
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({ id: animal.id, name: animal.name, diet: animal.diet, fun_fact: animal.funFact }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    fetch('http://localhost:3001/api/v1/animals', options)
   }
 
   render() {
