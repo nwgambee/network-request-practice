@@ -29,9 +29,13 @@ class App extends Component {
         'Content-Type': 'application/json'
       }
     };
+    let animalData = this.state.animals;
     fetch('http://localhost:3001/api/v1/animals', options)
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(newAnimal => {
+      animalData.push(newAnimal)
+      this.setState({ animals: animalData })
+    })
     .catch(error => console.log(error))
   }
 
