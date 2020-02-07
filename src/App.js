@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import IdeasContainer from './IdeasContainer'
 import './App.css';
-// import Form from './Form';
+import CardContainer from './CardContainer'
 
 class App extends Component {
   constructor() {
@@ -18,7 +18,10 @@ class App extends Component {
 
   render() {
     return (
-      <h1>hello there</h1>
+      <main>
+      <h1>Animals!!</h1>
+      <CardContainer animals={this.state.animals}/>
+      </main>
     )
   }
 }
