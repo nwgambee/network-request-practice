@@ -14,14 +14,17 @@ class App extends Component {
       .then(res => res.json())
       .then(animalData => this.setState({ animals: animalData }))
       .catch(error => console.log(error))
+  }
 
+  addAnimal = (animal) => {
+    console.log(animal);
   }
 
   render() {
     return (
       <main>
       <h1>Animals!!</h1>
-      <Form />
+      <Form addAnimal={this.addAnimal}/>
       <CardContainer animals={this.state.animals}/>
       </main>
     )

@@ -8,6 +8,11 @@ class Form extends Component {
   updateFields = (event) => {
     this.setState({[event.target.name]: event.target.value})
   }
+  submitAnimal = (event) => {
+    event.preventDefault();
+    this.props.addAnimal({name: this.state.name, funFact: this.state.funFact, diet: this.state.diet})
+  }
+
   render() {
     return (
       <form>
@@ -32,7 +37,7 @@ class Form extends Component {
         placeholder='Diet'
         onChange={this.updateFields}
         />
-        <button onClick={this.submitIdea}>Add New Animal</button>
+        <button onClick={this.submitAnimal}>Add New Animal</button>
       </form>
     )
   }
