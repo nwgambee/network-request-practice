@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+// import IdeasContainer from './IdeasContainer'
 import './App.css';
+// import Form from './Form';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {animals: []}
+  }
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/animals')
+      .then(res => res.json())
+      .then(animalData => this.setState({ animals: animalData }))
+      .catch(error => console.log(error))
+
+  }
+
+  render() {
+    return (
+      <h1>hello there</h1>
+    )
+  }
 }
 
 export default App;
