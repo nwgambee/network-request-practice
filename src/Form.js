@@ -11,6 +11,8 @@ class Form extends Component {
   submitAnimal = (event) => {
     event.preventDefault();
     this.props.addAnimal({name: this.state.name, id: this.state.id, funFact: this.state.funFact, diet: this.state.diet})
+    this.setState({name: '', id: '', funFact: '', diet: ''});
+
   }
 
   render() {
