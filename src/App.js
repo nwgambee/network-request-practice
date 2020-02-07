@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import IdeasContainer from './IdeasContainer'
 import './App.css';
 import CardContainer from './CardContainer'
 import Form from './Form'
@@ -10,6 +9,12 @@ class App extends Component {
     this.state = {animals: []}
   }
   componentDidMount() {
+    fetch('http://localhost:3001/api/v1/animals')
+      .then(res => res.json())
+      .then(animalData => this.setState({ animals: animalData }))
+      .catch(error => console.log(error))
+  }
+  updateState() {
     fetch('http://localhost:3001/api/v1/animals')
       .then(res => res.json())
       .then(animalData => this.setState({ animals: animalData }))
@@ -35,7 +40,7 @@ class App extends Component {
       method: 'DELETE',
 })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(animalData => this.setState({ animals: animalData }))
     .catch(error => console.log(error))
   }
 
