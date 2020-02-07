@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import IdeasContainer from './IdeasContainer'
 import './App.css';
 import CardContainer from './CardContainer'
+import Form from './Form'
 
 class App extends Component {
   constructor() {
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <main>
       <h1>Animals!!</h1>
+      <Form />
       <CardContainer animals={this.state.animals}/>
       </main>
     )
